@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Gallery | Edutek College</title>
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Gallery Specific Styling */
+      .gallery-container {
+        max-width: 1200px;
+        margin: 40px auto;
+        padding: 0 20px;
+      }
+
+      /* Advanced Table Styling */
+      .gallery-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 20px; /* Creates gap between cards */
+      }
+
+      .event-card {
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+        vertical-align: top;
+        width: 25%; /* 4 columns */
+        transition: transform 0.3s ease;
+      }
+
+      .event-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .event-card img {
+        width: 100%;
+        height: 180px;
+        object-fit: cover;
+        border-radius: 8px;
+        cursor: pointer;
+        border: 3px solid #f0f0f0;
+        transition: border-color 0.3s;
+      }
+
+      .event-card img:hover {
+        border-color: #ffcc00;
+      }
+
+      .event-title {
+        color: #003366;
+        font-weight: bold;
+        margin: 15px 0 10px;
+        font-size: 1.1rem;
+        display: block;
+        border-bottom: 2px solid #ffcc00;
+        padding-bottom: 5px;
+      }
+
+      .event-desc {
+        font-size: 0.9rem;
+        color: #666;
+        line-height: 1.5;
+        text-align: justify;
+      }
+
+      /* Popup Modal Styling */
+      #popup {
+        display: none;
+        position: fixed;
+        z-index: 10000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.9);
+        justify-content: center;
+        align-items: center;
+        cursor: zoom-out;
+      }
+
+      #popup img {
+        max-width: 85%;
+        max-height: 85%;
+        border: 5px solid white;
+        border-radius: 5px;
+        animation: zoomIn 0.3s ease;
+      }
+
+      @keyframes zoomIn {
+        from {
+          transform: scale(0.7);
+          opacity: 0;
+        }
+        to {
+          transform: scale(1);
+          opacity: 1;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <a href="index.html">Title</a>
+      <a href="home.html">Home</a>
+      <a href="chairperson.html">Chairperson</a>
+      <a href="principal.html">Principal</a>
+      <a href="gallery.html">Gallery</a>
+    </nav>
+
+    <h2>College Events Gallery</h2>
+
+    <div class="gallery-container">
+      <p class="intro-text" style="margin-bottom: 30px">
+        Our gallery showcases memorable moments and special programs organized
+        by Edutek College. These events reflect student creativity, teamwork,
+        celebration, and practical learning beyond the classroom.
+      </p>
+
+      <table class="gallery-table">
+        <tr>
+          <td class="event-card">
+            <span class="event-title">Welcome Program</span>
+            <img
+              src="freshers.jpg"
+              alt="Welcome"
+              onclick="openImage(this)"
+            />
+            <p class="event-desc">
+              Seniors and teachers greet new students, creating a friendly
+              atmosphere to help freshers feel at home.
+            </p>
+          </td>
+
+          <td class="event-card">
+            <span class="event-title">Farewell Program</span>
+            <img
+              src="fairwell.jpg"
+              alt="Farewell"
+              onclick="openImage(this)"
+            />
+            <p class="event-desc">
+              A special occasion honoring graduating students with emotional
+              speeches and appreciation for their journey.
+            </p>
+          </td>
+
+          <td class="event-card">
+            <span class="event-title">Picnic Event</span>
+            <img
+              src="picnic.jpg"
+              alt="Picnic"
+              onclick="openImage(this)"
+            />
+            <p class="event-desc">
+              Relaxation and bonding time outside campus featuring games, music,
+              and team-building activities.
+            </p>
+          </td>
+
+          <td class="event-card">
+            <span class="event-title">Educational Tour</span>
+            <img
+              src="tour.jpg"
+              alt="Tour"
+              onclick="openImage(this)"
+            />
+            <p class="event-desc">
+              Exploring real-world environments to improve practical observation
+              and learning beyond textbooks.
+            </p>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <div id="popup" onclick="closeImage()">
+      <img id="popupImg" />
+    </div>
+
+    <script>
+      function openImage(imgElement) {
+        document.getElementById("popupImg").src = imgElement.src;
+        document.getElementById("popup").style.display = "flex";
+      }
+      function closeImage() {
+        document.getElementById("popup").style.display = "none";
+      }
+    </script>
+  </body>
+</html>
